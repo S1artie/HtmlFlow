@@ -104,6 +104,10 @@ public abstract class HtmlWriterComposite<T, U extends HtmlWriterComposite>
     		addChild(child);
     	}
     }
+    
+    public List<HtmlWriter<?>> getChildren() {
+    	return children;
+    }
 
     public void doWriteBefore(PrintStream out, int depth) {
         tabs(out, depth);
