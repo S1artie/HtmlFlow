@@ -62,4 +62,8 @@ public class TextNode<T> implements HtmlWriter<T>{
         this.out = out;
         return this;
     }
+    
+    public String getText() {
+    	return msg;
+    }
 }
