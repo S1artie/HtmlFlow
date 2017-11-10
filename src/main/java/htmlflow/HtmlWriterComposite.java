@@ -27,6 +27,7 @@ package htmlflow;
 import htmlflow.attribute.Attribute;
 
 import java.io.PrintStream;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -96,6 +97,12 @@ public abstract class HtmlWriterComposite<T, U extends HtmlWriterComposite>
     public<S extends HtmlWriter<?>> S addChild(S child){
         children.add(child);
         return child;
+    }
+    
+    public<S extends HtmlWriter<?>> void addChildren(Collection<S> someChildren) {
+    	for(S child : someChildren) {
+    		addChild(child);
+    	}
     }
 
     public void doWriteBefore(PrintStream out, int depth) {
