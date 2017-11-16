@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2015-16, Mikael KROK
+ * Copyright (c) 2014-16, Miguel Gamboa (gamboa.pt)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,40 +21,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+package htmlflow.elements;
 
-package htmlflow.attribute;
+import htmlflow.HtmlWriterComposite;
+import htmlflow.attribute.AttributeType;
 
 /**
+ * A HTML a tag that is used as an anchor (for jumping within a page).
  * 
- * @author Mikael KROK 
- *
+ * @author Rene Schneider
+ *         created on 16-11-2017
  */
-public enum AttributeType {
-  ACCESSKEY,
-  CLASS,
-  CONTENTEDITABLE,
-  CONTEXTMENU,
-  DATA,
-  DIR,
-  DRAGGABLE,
-  DROPZONE,
-  HIDDEN,
-  HREF,
-  ID,
-  LANG,
-  LINK,
-  NAME,
-  REL,
-  SPELLCHECK,
-  STYLE,
-  TABINDEX,
-  TITLE,
-  TRANSLATE,
-    TYPE, ACTION, METHOD, ENCTYPE,
-    ;
-  
+public class HtmlAnchor<T> extends HtmlWriterComposite<T, HtmlAnchor<T>> {
+
+  public HtmlAnchor(String name) {
+    addAttr(AttributeType.NAME.toString(), name);
+  }
+
   @Override
-  public String toString() {
-    return this.name().toLowerCase();
+  public String getElementName() {
+    return ElementType.A.toString();
   }
 }
